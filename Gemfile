@@ -12,6 +12,7 @@ end
 # in production environments by default.
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+#un tout petit commentaire ajouté
 gem 'bcrypt-ruby', '3.0.1'
 group :development, :test do
 	gem 'sqlite3', '1.3.5'
