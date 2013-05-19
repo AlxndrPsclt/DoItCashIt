@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130519152212) do
     t.datetime "updated_at",                   :null => false
   end
 
-  create_table "posts", :force => true do |i|
+  create_table "posts", :force => true do |t|
     t.integer  "idComment"
     t.integer  "idAuteur"
     t.integer  "idDefi"
