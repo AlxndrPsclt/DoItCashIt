@@ -3,6 +3,10 @@ DoItCashIt::Application.routes.draw do
 
   get "static_pages/help"
 
+  get "static_pages/defisrealises"
+
+  get "static_pages/defisarealiser"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -4,4 +4,10 @@ class StaticPagesController < ApplicationController
 
   def help
   end
+
+  def defisrealises
+  end
+
+  def defisarealiser
+  end
 end
