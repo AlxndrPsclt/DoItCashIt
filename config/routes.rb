@@ -1,4 +1,5 @@
 DoItCashIt::Application.routes.draw do
+<<<<<<< HEAD
   get "static_pages/home"
 
   get "static_pages/help"
@@ -6,6 +7,9 @@ DoItCashIt::Application.routes.draw do
   get "static_pages/defisrealises"
 
   get "static_pages/defisarealiser"
+=======
+  get "users/new"
+>>>>>>> 7aeedec698e7b3c1a6b61d66691e140fa863b047
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
