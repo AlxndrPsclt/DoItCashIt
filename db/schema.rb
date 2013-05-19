@@ -16,12 +16,22 @@ ActiveRecord::Schema.define(:version => 20130519152212) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
+    t.integer  "id"
     t.integer  "jetons"
     t.integer  "jetonsTotalDepuisInscription"
     t.string   "password_digest"
     t.datetime "dateDerniereConnection"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "posts", :force => true do |i|
+    t.integer  "idComment"
+    t.integer  "idAuteur"
+    t.integer  "idDefi"
+    t.datetime "date"
+    t.datetime "heure",                        :null => false
+    t.string   "contenu",                      :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
