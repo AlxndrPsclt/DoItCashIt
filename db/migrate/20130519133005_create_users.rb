@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.integer :jetons
       t.integer :jetonsTotalDepuisInscription
-      t.string :password_digest
       t.datetime :dateDerniereConnection
 
       t.timestamps

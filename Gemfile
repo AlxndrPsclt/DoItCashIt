@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-<<<<<<< HEAD
+
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
@@ -10,15 +10,15 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-=======
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+#un tout petit commentaire ajouté pornwillsave US
 gem 'bcrypt-ruby', '3.0.1'
 group :development, :test do
 	gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.11.0'
 end
->>>>>>> 7aeedec698e7b3c1a6b61d66691e140fa863b047
+
 group :assets do
  	gem 'sass-rails',   '3.2.5'
  	gem 'coffee-rails', '3.2.2'
@@ -27,21 +27,20 @@ end
 group :development do
 	gem 'annotate', '2.5.0'
 end
-<<<<<<< HEAD
+
 
 gem 'jquery-rails', '2.0.2'
-=======
->>>>>>> 7aeedec698e7b3c1a6b61d66691e140fa863b047
+
 
 group :test do
   gem 'capybara', '1.1.2'
 end
 
-<<<<<<< HEAD
+
 group :production do
   gem 'pg', '0.12.2'
 end
-=======
+
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -69,4 +68,4 @@ end
 
 # To use debugger
 # gem 'debugger'
->>>>>>> 7aeedec698e7b3c1a6b61d66691e140fa863b047
+
