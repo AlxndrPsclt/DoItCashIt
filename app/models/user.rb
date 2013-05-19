@@ -14,5 +14,8 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :dateDerniereConnection, :email, :jetons, :jetonsTotalDepuisInscription, :name, :password_digest
+	attr_accessible :dateDerniereConnection, :email, :jetons, :jetonsTotalDepuisInscription, :name, :password_digest
+
+	validates :name, presence: true
+	validates :email, presence: true
 end
