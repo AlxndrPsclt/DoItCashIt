@@ -1,13 +1,19 @@
 DoItCashIt::Application.routes.draw do
+  get "defis/new"
 
-  get "static_pages/home"
-
-  get "static_pages/help"
-
-  get "static_pages/defisrealises"
-
-  get "static_pages/defisarealiser"
   get "users/new"
+
+  root to: 'static_pages#home'
+
+  match '/home', to: 'static_pages#home'
+
+  match '/help', to: 'static_pages#help'
+
+  match '/defisrealises', to: 'static_pages#defisrealises'
+
+  match '/defisarealiser', to: 'static_pages#defisarealiser'
+
+  match '/signup', to: 'users#new'
 
 
   # The priority is based upon order of creation:
