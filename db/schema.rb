@@ -11,18 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519152212) do
+ActiveRecord::Schema.define(:version => 20130520120830) do
 
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.integer  "id"
-    t.integer  "jetons"
-    t.integer  "jetonsTotalDepuisInscription"
-    t.string   "password_digest"
-    t.datetime "dateDerniereConnection"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+  create_table "defis", :force => true do |t|
+    t.string   "titre"
+    t.string   "description"
+    t.datetime "dateLimite"
+    t.datetime "dateLancement"
+    t.integer  "defiDestineAUtilisateurUnique"
+    t.string   "lienVersLaVideo"
+    t.string   "modalites"
+    t.integer  "miseDeDepart"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "posts", :force => true do |t|
@@ -30,8 +31,19 @@ ActiveRecord::Schema.define(:version => 20130519152212) do
     t.integer  "idAuteur"
     t.integer  "idDefi"
     t.datetime "date"
-    t.datetime "heure",                        :null => false
-    t.string   "contenu",                      :null => false
+    t.datetime "heure",     :null => false
+    t.string   "contenu",   :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "jetons"
+    t.integer  "jetonsTotalDepuisInscription"
+    t.string   "password_digest"
+    t.datetime "dateDerniereConnection"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
