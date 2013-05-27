@@ -14,6 +14,7 @@
 #
 
 class User < ActiveRecord::Base
+	has_many :microposts
 	attr_accessible :dateDerniereConnection, :email, :jetons, :jetonsTotalDepuisInscription, :name, :password, :password_confirmation
 	has_secure_password
 	before_save { |user| user.email = email.downcase }
