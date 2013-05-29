@@ -17,20 +17,19 @@
 
 class Defi < ActiveRecord::Base
   attr_accessible :dateLancement, :dateLimite, :defiDestineAUtilisateurUnique, :description, :lienVersLaVideo, :miseDeDepart, :modalites, :titre
+  after_initialize :init
+  def init
+    if self.dateLancement == nil
+      self.dateLimite||= Time.now + 5.months
+    else
+      self.dateLimite ||= self.dateLancement + 5.months
+    end  
+  self.dateLancement ||= Time.now
+
+  end 
   validates :titre, presence: true, length: { maximum: 80 }
-  
-  if @dateLancement == nil
-  	@dateLancement = @created_at
-  end
-
-  if @dateLimite == nil
-  	@dateLimite = @dateLancement
-  end
-
   validates :description, presence: true
   validates :miseDeDepart, :numericality => {:greater_than_or_equal_to => 5}
-
-
 
 
 
