@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520120830) do
+ActiveRecord::Schema.define(:version => 20130526185846) do
 
   create_table "defis", :force => true do |t|
     t.string   "titre"
@@ -26,13 +26,12 @@ ActiveRecord::Schema.define(:version => 20130520120830) do
     t.datetime "updated_at",                    :null => false
   end
 
-  create_table "posts", :force => true do |t|
-    t.integer  "idComment"
-    t.integer  "idAuteur"
-    t.integer  "idDefi"
-    t.datetime "date"
-    t.datetime "heure",     :null => false
-    t.string   "contenu",   :null => false
+  create_table "microposts", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -40,10 +39,10 @@ ActiveRecord::Schema.define(:version => 20130520120830) do
     t.string   "email"
     t.integer  "jetons"
     t.integer  "jetonsTotalDepuisInscription"
-    t.string   "password_digest"
     t.datetime "dateDerniereConnection"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.string   "password_digest"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
