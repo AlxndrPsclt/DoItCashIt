@@ -1,0 +1,132 @@
+<% provide(:title, 'Inscription') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--<link href="css/tuto1.css" rel="stylesheet" type="text/css"-->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      /* Styles utiles à la mise en page */
+    header {
+       height: 100px;
+    }
+    section {
+       height: 300px;
+    }
+    footer {
+       height: 50px;
+    }
+    [class*="span"] {
+     background-color:#6E6E6E;
+     margin-bottom: 10px;
+     border-radius: 5px 5px 5px 5px;
+     line-height: 80px;
+     text-align: center;
+     }
+    .bloc {
+       height: 150px;
+    }
+    /* Les styles suivants sont juste pour faire apparaître la mise en page */
+    .span12 {
+       background-color:lightgrey;
+    }
+    .span2 {
+       background-color:lightgrey
+    }
+    .mybtn{
+      height: 100px;
+      width: 300px;
+      font-size: 25px;
+    }
+    </style>
+    <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  	<div class="container-fluid">
+      <div class="hero-unit"style="text-align:center;">
+  		  <h1>INSCRIPTION</h1>
+      </div>
+
+
+      <div class="navbar navbar-inverse ">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/home">Do It Cash It</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/home">Acceuil</a></li>
+              <li><a href="/defisrealises">Défis réalisés</a></li>
+              <li><a href="/defisarealiser">Défis à réaliser</a></li>
+              <li><a href="/moncompte">Mon Compte</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="row">
+            <div class="span6 offset3"style="color:white;">
+              <%= form_for(@user) do |f| %>
+
+                <%= render 'shared/error_messages' %>
+                <%= f.label :name, "Nom" %>
+                <%= f.text_field :name %>
+
+                <%= f.label :email %>
+                <%= f.text_field :email %>
+
+                <%= f.label :password, "Mot de passe" %>
+                <%= f.password_field :password %>
+
+                <%= f.label :password_confirmation, "Confirmation" %>
+                <%= f.password_field :password_confirmation %>
+                <br>
+
+                <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap-transition.js"></script>
+    <script src="../bootstrap/js/bootstrap-alert.js"></script>
+    <script src="../bootstrap/js/bootstrap-modal.js"></script>
+    <script src="../bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="../bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="../bootstrap/js/bootstrap-tab.js"></script>
+    <script src="../bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="../bootstrap/js/bootstrap-popover.js"></script>
+    <script src="../bootstrap/js/bootstrap-button.js"></script>
+    <script src="../bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="../bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+    
+      </body>
+</html>
+
