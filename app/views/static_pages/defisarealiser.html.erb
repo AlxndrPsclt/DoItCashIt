@@ -58,8 +58,12 @@
   	<div class="container-fluid">
       <div class="hero-unit"style="text-align:center;">
         <div class="row-fluid">
+          <% if signed_in? %>
+          <%= link_to "Déconnection", signout_path, method: "delete" %>
+          <% else %>
           <a href="/signin" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Connection</a>
           <a href="/signup" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Inscris toi!</a>
+          <% end %>
         </div>
         <div class="row-fluid">
           <h1>DO IT</h1>
