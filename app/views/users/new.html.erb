@@ -9,44 +9,6 @@
 
     <!-- Le styles -->
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-    <!--<link href="css/tuto1.css" rel="stylesheet" type="text/css"-->
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-      /* Styles utiles à la mise en page */
-    header {
-       height: 100px;
-    }
-    section {
-       height: 300px;
-    }
-    footer {
-       height: 50px;
-    }
-    [class*="span"] {
-     background-color:#6E6E6E;
-     margin-bottom: 10px;
-     border-radius: 5px 5px 5px 5px;
-     line-height: 80px;
-     text-align: center;
-     }
-    .bloc {
-       height: 150px;
-    }
-    /* Les styles suivants sont juste pour faire apparaître la mise en page */
-    .span12 {
-       background-color:lightgrey;
-    }
-    .span2 {
-       background-color:lightgrey
-    }
-    .mybtn{
-      height: 100px;
-      width: 300px;
-      font-size: 25px;
-    }
-    </style>
     <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -76,7 +38,9 @@
               <li><a href="/home">Acceuil</a></li>
               <li><a href="/defisrealises">Défis réalisés</a></li>
               <li><a href="/defisarealiser">Défis à réaliser</a></li>
-              <li><a href="/moncompte">Mon Compte</a></li>
+              <% if signed_in? %>
+              <li><a href="/users/<%=@current_user.id%>">Mon Compte</a></li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

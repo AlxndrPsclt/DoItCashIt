@@ -20,6 +20,8 @@ DoItCashIt::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/users', to: 'users#show'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
