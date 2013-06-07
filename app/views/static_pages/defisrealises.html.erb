@@ -16,7 +16,7 @@
       <div class="hero-unit"style="text-align:center;">
         <div class="row-fluid">
           <% if signed_in? %>
-          <%= link_to "Déconnection", signout_path, method: "delete" %>
+          <%= link_to "Déconnection", signout_path, method: "delete", class: "pull-right" %>
           <% else %>
           <a href="/signin" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Connection</a>
           <a href="/signup" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Inscris toi!</a>
@@ -26,8 +26,9 @@
           <h1>THEY CASHED IT</h1>
         </div>
       </div>
-
-
+       <% if signed_in? %>
+          <h1><%= gravatar_for @current_user %> <%= @current_user.name %></h1>
+      <% end %>
 
       <div class="navbar navbar-inverse ">
       <div class="navbar-inner">

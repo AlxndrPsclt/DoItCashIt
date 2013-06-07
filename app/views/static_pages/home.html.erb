@@ -9,7 +9,7 @@
 
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    
+
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <div class="hero-unit"style="text-align:center;">
         <div class="row-fluid">
           <% if signed_in? %>
-            <%= link_to "Déconnection", signout_path, method: "delete" %>
+            <%= link_to "Déconnection", signout_path, method: "delete", class: "pull-right" %>
           <% else %>
             <a href="/signin" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Connection</a>
             <a href="/signup" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Inscris toi!</a>
@@ -27,7 +27,9 @@
           <h1>DO IT CASH IT </h1>
         </div>
       </div>
-
+      <% if signed_in? %>
+          <h1><%= gravatar_for @current_user %> <%= @current_user.name %></h1>
+      <% end %>
 
       <div class="navbar navbar-inverse ">
       <div class="navbar-inner">
@@ -77,17 +79,17 @@
                   }
               </script>
             </div>
-            <div class="span4" style="height:140px;">
-              <div class="btn-group btn-group-vertical">
-                <a class="btn" href="/defisarealiser"style="height:50px;width:100%;font-size:35px;margin-bottom: 10px;line-height: 50px;">Relever un défi</a>
-                <a class="btn" href="/formulaire"style="height:50px;width:100%;font-size:35px;line-height: 50px;">Proposer un défi</a>
+            <div class="span6" style="height:140px;">
+              <div class="btn-group btn-group-vertical"style="width:50%;">
+                <a class="btn" href="/defisarealiser"style="height:50px;font-size:35px;margin-bottom: 10px;line-height: 50px;">Relever un défi</a>
+                <a class="btn" href="/formulaire"style="height:50px;font-size:35px;line-height: 50px;">Proposer un défi</a>
               </div>
             </div>
-            <div class="span4 pull-left" style="background-color:grey;height:275px;">
+            <div class="span6 pull-left" style="background-color:grey;height:275px;">
               <div class="bfh-selectbox">
                 <h2>Ils sont connectés!</h2>
                 <div class="bfh-selectbox-options">
-                  <div role="listbox"style="height:225px;overflow:scroll">
+                  <div role="listbox"style="height:225px;overflow:scroll;font-size:18px;">
                     <ul role="option">
                         <li><a tabindex="-1" href="/user/user.id" data-option="1">user.name</a></li>
                         <li><a tabindex="-1" href="#" data-option="2">Option 2</a></li>
