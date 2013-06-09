@@ -13,6 +13,7 @@
 #  miseDeDepart                  :integer
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
+#  createur                      :integer
 #
 
 require 'spec_helper'

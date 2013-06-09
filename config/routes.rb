@@ -1,7 +1,8 @@
 DoItCashIt::Application.routes.draw do
   resources :users
+  resources :defis
   resources :sessions, only: [:new, :create, :destroy]
-  get "defis/new"
+  resources :microposts, only: [:create, :destroy]
 
   root to: 'static_pages#home'
 
@@ -9,9 +10,9 @@ DoItCashIt::Application.routes.draw do
 
   match '/help', to: 'static_pages#help'
 
-  match '/defisrealises', to: 'static_pages#defisrealises'
+  match '/defisrealises', to: 'defis#defisrealises'
 
-  match '/defisarealiser', to: 'static_pages#defisarealiser'
+  match '/defisarealiser', to: 'defis#defisarealiser'
 
   match '/signup', to: 'users#new'
 
@@ -20,6 +21,9 @@ DoItCashIt::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/users', to: 'users#show'
+
+  match '/formulaire', to: 'defis#new'
+  
 
 
   # The priority is based upon order of creation:

@@ -7,14 +7,16 @@
 #  email                        :string(255)
 #  jetons                       :integer
 #  jetonsTotalDepuisInscription :integer
-#  password_digest              :string(255)
 #  dateDerniereConnection       :datetime
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
+#  password_digest              :string(255)
+#  remember_token               :string(255)
+#  admin                        :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
-	has_many :microposts
+	has_many :microposts, dependent: :destroy
 	attr_accessible :dateDerniereConnection, :email, :jetons, :jetonsTotalDepuisInscription, :name, :password, :password_confirmation
 	has_secure_password
 	before_save { |user| user.email = email.downcase }

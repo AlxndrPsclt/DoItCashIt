@@ -43,6 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a class="brand" href="/home">Do It Cash It</a>
           <div class="nav-collapse collapse">
@@ -53,6 +54,7 @@
               <% if signed_in? %>
               <li><a href="/users/<%=@current_user.id%>">Mon Compte</a></li>
               <% end %>
+              <li><a href="/users">La communauté</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
