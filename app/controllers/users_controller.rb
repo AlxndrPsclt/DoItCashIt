@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update, :index, :destroy, :promove_admin]
+  before_filter :signed_in_user, only: [:edit, :update, :index, :destroy, :promote_admin]
   before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: [:destroy, :promove_admin]
+  before_filter :admin_user,     only: [:destroy, :promote_admin]
 
   def show
     @user = User.find(params[:id])
@@ -11,7 +11,20 @@ class UsersController < ApplicationController
   def new
   	@user = User.new
   end
-  
+  #Admin 
+  def promote_admin
+    @user=User.find(params[:id])
+    @user.toggle!(:admin)
+    redirect_to users_url
+    flash[:success] = "Promotion réussie"
+  end
+  def unpromote_admin
+    @user=User.find(params[:id])
+    @user.toggle!(:admin)
+    redirect_to users_url
+    flash[:success] = "Action réussie"
+  end
+  # Creation
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -23,7 +36,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
+  #Showing all users
   def index
     @users = User.paginate(page: params[:page])
   end

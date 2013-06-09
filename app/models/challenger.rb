@@ -16,4 +16,10 @@
 #
 
 class Challenger < User
+
+
+	#add a challenge to a challenger
+  def add_challenge
+
+  end
 end

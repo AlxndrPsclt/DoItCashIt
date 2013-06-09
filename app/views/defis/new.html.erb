@@ -74,10 +74,10 @@
   				</div>
 
                 <%= f.label :modalites, "Modalités de validation" %>
-                <%= f.password_field :modalites, :class => 'description_field' %>
+                <%= f.text_field :modalites, :class => 'description_field' %>
    
                	<%= f.label :dateLancement, "Date de lancement" %>
-				<%= f.datetime_select :dateLancement, :order => [:year, :month, :day], :class => 'date_field'%>
+				        <%= f.datetime_select :dateLancement, { :order => [:day, :month, :year, :hour,:minute], :start_year=> Time.now.year }, :size => 0 %>
 
                 <%= f.label :dateLimite, "Date limite du défi" %>
                 <small>(si elle est dépassée le défi peut être relever mais les crédits pourront être rendus)</small>

@@ -10,8 +10,8 @@ DoItCashIt::Application.routes.draw do
 
   match '/help', to: 'static_pages#help'
 
+  match '/defis/show_all', to: 'defis#index'
   match '/defisrealises', to: 'defis#defisrealises'
-
   match '/defisarealiser', to: 'defis#defisarealiser'
 
   match '/signup', to: 'users#new'
@@ -21,8 +21,12 @@ DoItCashIt::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/users', to: 'users#show'
+  match '/defis', to: 'defis#show'
 
   match '/formulaire', to: 'defis#new'
+
+  match 'users/:id/promote', to: 'users#promote_admin', :as => :promote
+  match 'users/:id/unpromote', to: 'users#unpromote_admin', :as => :unpromote
   
 
 

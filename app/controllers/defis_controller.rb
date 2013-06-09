@@ -11,6 +11,10 @@ class DefisController < ApplicationController
     @defi = Defi.find(params[:id])
   end
 
+  def index
+    @users = User.paginate(page: params[:page])
+  end
+  
   def defisrealises
   	@defi = Defi.paginate(page: params[:page])
   end
@@ -30,8 +34,7 @@ class DefisController < ApplicationController
       render 'new'
     end
   end
-
-
+  
   private
 
       def signed_in_user
