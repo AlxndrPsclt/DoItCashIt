@@ -7,7 +7,12 @@ class DefisController < ApplicationController
   end
 
   def show
+    if signed_in?
+      @micropost = current_user.microposts.build if signed_in?
+    end
     @defi = Defi.find(params[:id])
+    @microposts=@defi.microposts.paginate(page: params[:page])
+    
   end
 
   def index

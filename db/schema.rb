@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609005148) do
+ActiveRecord::Schema.define(:version => 20130610163216) do
 
   create_table "defis", :force => true do |t|
     t.string   "titre"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130609005148) do
     t.integer  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "defi_id"
   end
 
   create_table "users", :force => true do |t|

@@ -18,9 +18,7 @@ DoItCashIt::Application.routes.draw do
   match 'defis/:id/edit', to: 'defis#edit', :as => :edit_defi
 
   match '/signup', to: 'users#new'
-
   match '/signin',  to: 'sessions#new'
-  
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/users', to: 'users#show'
@@ -32,7 +30,7 @@ DoItCashIt::Application.routes.draw do
   match 'users/:id/promote', to: 'users#promote_admin', :as => :promote
   match 'users/:id/unpromote', to: 'users#unpromote_admin', :as => :unpromote
   
-
+  match '/microposts', to: 'microposts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

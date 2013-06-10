@@ -19,6 +19,7 @@
 class Defi < ActiveRecord::Base
   attr_accessible :dateLancement, :createur, :dateLimite, :defiDestineAUtilisateurUnique, :description, :lienVersLaVideo, :miseDeDepart, :modalites, :titre
   after_initialize :init
+  has_many :microposts, dependent: :destroy
   def init
     if self.dateLancement == nil
       self.dateLimite||= Time.now + 5.months
