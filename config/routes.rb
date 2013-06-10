@@ -15,7 +15,7 @@ DoItCashIt::Application.routes.draw do
   match '/defisarealiser', to: 'defis#defisarealiser'
 
   match 'defis/:id/destroy', to: 'defis#destroy', :as => :suppress
-  match 'defis/:id/edit', to: 'defis#edit', :as => :edit
+  match 'defis/:id/edit', to: 'defis#edit', :as => :edit_defi
 
   match '/signup', to: 'users#new'
 
@@ -28,6 +28,7 @@ DoItCashIt::Application.routes.draw do
 
   match '/formulaire', to: 'defis#new'
 
+  match 'users/:id/edit', to: 'users#edit', :as => :edit_user
   match 'users/:id/promote', to: 'users#promote_admin', :as => :promote
   match 'users/:id/unpromote', to: 'users#unpromote_admin', :as => :unpromote
   

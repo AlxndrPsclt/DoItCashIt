@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update, :index, :destroy, :promote_admin]
-  before_filter :correct_user,   only: [:edit, :update]
+  before_filter :signed_in_user, only: [:edit, :update, :index, :destroy, :promote_admin, :edit_mot_de_passe]
+  before_filter :correct_user,   only: [:edit, :update, :edit_mot_de_passe]
   before_filter :admin_user,     only: [:destroy, :promote_admin]
 
   def show
@@ -42,6 +42,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
 
       def correct_user
         @user = User.find(params[:id])
-        redirect_to home_path , notice: "Vous n'avez pas les permissions nécessaires pour acceder à cette page" unless current_user?(@user) 
+        redirect_to home_path , notice: "Vous n'avez pas les permissions nécessaires pour acceder à cette page" unless current_user?(@user)||current_user.admin? 
       end
 
       def admin_user
