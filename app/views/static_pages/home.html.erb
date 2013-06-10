@@ -17,9 +17,9 @@
       <div class="hero-unit"style="text-align:center;">
         <div class="row-fluid">
           <% if signed_in? %>
-            <%= link_to "Déconnection", signout_path, method: "delete", class: "pull-right" %>
+            <%= link_to "Déconnexion", signout_path, method: "delete", class: "pull-right" %>
           <% else %>
-            <a href="/signin" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Connection</a>
+            <a href="/signin" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Connexion</a>
             <a href="/signup" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Inscris toi!</a>
           <% end %>
         </div>
@@ -44,7 +44,7 @@
           <a class="brand" href="">Do It Cash It</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="">Acceuil</a></li>
+              <li class="active"><a href="">Accueil</a></li>
               <li><a href="/defisrealises">Défis réalisés</a></li>
               <li><a href="/defisarealiser">Défis à réaliser</a></li>
               <% if signed_in? %>
@@ -61,7 +61,7 @@
         <div class="span12">
           <div class="row-fluid">
             <div class="span6"style="height:420px">
-              <div id="ytplayer" style="line-height:420px"></div>
+              <div id="ytplayer" style="line-height:420px; margin-top:15px;"></div>
               <script>
                   // Load the IFrame Player API code asynchronously.
                   var tag = document.createElement('script');

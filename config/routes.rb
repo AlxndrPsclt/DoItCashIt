@@ -10,9 +10,12 @@ DoItCashIt::Application.routes.draw do
 
   match '/help', to: 'static_pages#help'
 
-  match '/defis/show_all', to: 'defis#index'
+  match '/defis_show_all', to: 'defis#index'
   match '/defisrealises', to: 'defis#defisrealises'
   match '/defisarealiser', to: 'defis#defisarealiser'
+
+  match 'defis/:id/destroy', to: 'defis#destroy', :as => :suppress
+  match 'defis/:id/edit', to: 'defis#edit', :as => :edit
 
   match '/signup', to: 'users#new'
 

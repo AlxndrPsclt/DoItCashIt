@@ -1,7 +1,6 @@
 class DefisController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :index, :destroy, :create, :new]
-  before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: :destroy
+  before_filter :admin_user,     only: [:destroy, :edit, :update]
 
   def new
   	@defi = Defi.new
@@ -12,7 +11,7 @@ class DefisController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @defis = Defi.paginate(page: params[:page])
   end
   
   def defisrealises
@@ -33,6 +32,26 @@ class DefisController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @defi=Defi.find(params[:id])
+  end
+
+  def update
+    @defi=Defi.find(params[:id])
+    if @defi.update_attributes(params[:defi])
+      flash[:success] = "Défi mis à jour"
+      redirect_to @defi
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Defi.find(params[:id]).destroy
+    flash[:success] = "Défi supprimé."
+    redirect_to defis_show_all_url
   end
   
   private

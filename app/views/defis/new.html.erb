@@ -22,9 +22,9 @@
       <div class="hero-unit"style="text-align:center;">
 	      <div class="row-fluid">
 	          <% if signed_in? %>
-	          <%= link_to "Déconnection", signout_path, method: "delete", class: "pull-right" %>
+	          <%= link_to "Déconnexion", signout_path, method: "delete", class: "pull-right" %>
 	          <% else %>
-	          <a href="/signin" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Connection</a>
+	          <a href="/signin" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Connexion</a>
 	          <a href="/signup" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Inscris toi!</a>
 	          <% end %>
 		  </div>
@@ -47,7 +47,7 @@
           <a class="brand" href="/home">Do It Cash It</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="/home">Acceuil</a></li>
+              <li><a href="/home">Accueil</a></li>
               <li><a href="/defisrealises">Défis réalisés</a></li>
               <li><a href="/defisarealiser">Défis à réaliser</a></li>
               <% if signed_in? %>
@@ -80,8 +80,6 @@
 				        <%= f.datetime_select :dateLancement, { :order => [:day, :month, :year, :hour,:minute], :start_year=> Time.now.year }, :size => 0 %>
 
                 <%= f.label :dateLimite, "Date limite du défi" %>
-                <small>(si elle est dépassée le défi peut être relever mais les crédits pourront être rendus)</small>
-                <br>
                 <%= f.datetime_select :dateLimite, { :order => [:day, :month, :year, :hour,:minute], :start_year=> Time.now.year }, :size => 0 %>
 
                 <%= f.label :miseDeDepart, "Mise de départ" %>
