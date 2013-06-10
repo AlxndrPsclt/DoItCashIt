@@ -1,2 +1,154 @@
-<h1>Do it Cash it</h1>
-<p>Cette page est destinée à accueillir la page d'accueil du célèbre site <a href="http://localhost:3000/static_pages/home"> Do it Cash it</a>. Elle ne restera pas blanche très longtemps. Si vous avez besoin d'aide, visitez <a href="http://localhost:3000/static_pages/help"> Besoin d'aide ?</a>.</p>
+<% provide(:title, 'Accueil') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+  	<div class="container-fluid">
+      <div class="hero-unit"style="text-align:center;">
+        <div class="row-fluid">
+          <% if signed_in? %>
+            <%= link_to "Déconnexion", signout_path, method: "delete", class: "pull-right" %>
+          <% else %>
+            <a href="/signin" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Connexion</a>
+            <a href="/signup" class="btn btn-large btn-primary pull-right"style="margin-right:10px;">Inscris toi!</a>
+          <% end %>
+        </div>
+        <div class="row-fluid">
+          <h1>DO IT CASH IT </h1>
+        </div>
+      </div>
+      <% if signed_in? %>
+          <h1><%= gravatar_for @current_user %> <%= @current_user.name %></h1>
+      <% end %>
+
+      <div class="navbar navbar-inverse ">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="">Do It Cash It</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="">Accueil</a></li>
+              <li><a href="/defisrealises">Défis réalisés</a></li>
+              <li><a href="/defisarealiser">Défis à réaliser</a></li>
+              <% if signed_in? %>
+              <li><a href="/users/<%=@current_user.id%>">Mon Compte</a></li>
+              <% end %>
+              <li><a href="/users">La communauté</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="row-fluid">
+            <div class="span6"style="height:420px">
+              <div id="ytplayer" style="line-height:420px; margin-top:15px;"></div>
+              <script>
+                  // Load the IFrame Player API code asynchronously.
+                  var tag = document.createElement('script');
+                  tag.src = "https://www.youtube.com/player_api";
+                  var firstScriptTag = document.getElementsByTagName('script')[0];
+                  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                  // Replace the 'ytplayer' element with an <iframe> and
+                  // YouTube player after the API code downloads.
+                  var player;
+                  function onYouTubePlayerAPIReady() {
+                    player = new YT.Player('ytplayer', {
+                      height: '390',
+                      width: '95%',
+                      videoId: 'aE2GCa-_nyU'
+                    });
+                  }
+              </script>
+            </div>
+            <div class="span6" style="height:140px;">
+              <div class="btn-group btn-group-vertical"style="width:50%;">
+                <a class="btn" href="/defisarealiser"style="height:50px;font-size:35px;margin-bottom: 10px;line-height: 50px;">Relever un défi</a>
+                <a class="btn" href="/formulaire"style="height:50px;font-size:35px;line-height: 50px;">Proposer un défi</a>
+              </div>
+            </div>
+            <div class="span6 pull-left" style="background-color:grey;height:275px;">
+              <div class="bfh-selectbox">
+                <h2>Ils sont connectés!</h2>
+                <div class="bfh-selectbox-options">
+                  <div role="listbox"style="height:225px;overflow:scroll;font-size:18px;">
+                    <ul role="option">
+                        <li><a tabindex="-1" href="/user/user.id" data-option="1">user.name</a></li>
+                        <li><a tabindex="-1" href="#" data-option="2">Option 2</a></li>
+                        <li><a tabindex="-1" href="#" data-option="3">Option 3</a></li>
+                        <li><a tabindex="-1" href="#" data-option="4">Option 4</a></li>
+                        <li><a tabindex="-1" href="#" data-option="5">Option 5</a></li>
+                        <li><a tabindex="-1" href="#" data-option="6">Option 6</a></li>
+                        <li><a tabindex="-1" href="#" data-option="7">Option 7</a></li>
+                        <li><a tabindex="-1" href="#" data-option="8">Option 8</a></li>
+                        <li><a tabindex="-1" href="#" data-option="9">Option 9</a></li>
+                        <li><a tabindex="-1" href="#" data-option="10">Option 10</a></li>
+                        <li><a tabindex="-1" href="#" data-option="11">Option 11</a></li>
+                        <li><a tabindex="-1" href="#" data-option="12">Option 12</a></li>
+                        <li><a tabindex="-1" href="#" data-option="13">Option 13</a></li>
+                        <li><a tabindex="-1" href="#" data-option="14">Option 14</a></li>
+                        <li><a tabindex="-1" href="#" data-option="15">Option 15</a></li>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row-fluid">
+        <div class="span12" style="height:140px;">
+        	<div class="row-fluid">
+             <div class="span2" style="height:100px;margin-top:20px;">1</div>
+             <div class="span2" style="height:100px;margin-top:20px;">2</div>
+             <div class="span2" style="height:100px;margin-top:20px;">3</div>
+             <div class="span2" style="height:100px;margin-top:20px;">4</div>
+             <div class="span2" style="height:100px;margin-top:20px;">5</div>
+             <div class="span2" style="height:100px;margin-top:20px;">6</div>
+          </div>   
+   	    </div>
+      </div>
+     
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../"bootstrap/"js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap-transition.js"></script>
+    <script src="../bootstrap/js/bootstrap-alert.js"></script>
+    <script src="../bootstrap/js/bootstrap-modal.js"></script>
+    <script src="../bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="../bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="../bootstrap/js/bootstrap-tab.js"></script>
+    <script src="../bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="../bootstrap/js/bootstrap-popover.js"></script>
+    <script src="../bootstrap/js/bootstrap-button.js"></script>
+    <script src="../bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="../bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+    
+      </body>
+</html>

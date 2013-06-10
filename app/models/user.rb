@@ -7,17 +7,20 @@
 #  email                        :string(255)
 #  jetons                       :integer
 #  jetonsTotalDepuisInscription :integer
-#  password_digest              :string(255)
 #  dateDerniereConnection       :datetime
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
+#  password_digest              :string(255)
+#  remember_token               :string(255)
+#  admin                        :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
-	has_many :microposts
+	has_many :microposts, dependent: :destroy
 	attr_accessible :dateDerniereConnection, :email, :jetons, :jetonsTotalDepuisInscription, :name, :password, :password_confirmation
 	has_secure_password
 	before_save { |user| user.email = email.downcase }
+	before_save :create_remember_token
 
 	validates :name,  presence: true, length: { maximum: 25 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -28,7 +31,11 @@ class User < ActiveRecord::Base
 
 
 
+	private
 
+    	def create_remember_token
+    	  self.remember_token = SecureRandom.urlsafe_base64
+    	end
 	
 end
 

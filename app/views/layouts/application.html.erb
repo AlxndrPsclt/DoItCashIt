@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DoItCashIt</title>
+  <title>DoItCashIt | <%= yield(:title) %> </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container-fluid">
+	<% flash.each do |key, value| %>
+    	<div class="alert alert-<%= key %>"><%= value %></div>
+  	<% end %>
+  	<%= yield %>
+  	<%= render 'layouts/footer' %>
+  	<br>
+  	<%= debug(params) if Rails.env.development? %>
 
-<%= yield %>
+</div>
+
+
 
 </body>
 </html>

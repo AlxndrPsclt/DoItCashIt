@@ -1,7 +1,8 @@
 DoItCashIt::Application.routes.draw do
-  get "defis/new"
-
-  get "users/new"
+  resources :users
+  resources :defis
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   root to: 'static_pages#home'
 
@@ -9,12 +10,27 @@ DoItCashIt::Application.routes.draw do
 
   match '/help', to: 'static_pages#help'
 
-  match '/defisrealises', to: 'static_pages#defisrealises'
+  match '/defis_show_all', to: 'defis#index'
+  match '/defisrealises', to: 'defis#defisrealises'
+  match '/defisarealiser', to: 'defis#defisarealiser'
 
-  match '/defisarealiser', to: 'static_pages#defisarealiser'
+  match 'defis/:id/destroy', to: 'defis#destroy', :as => :suppress
+  match 'defis/:id/edit', to: 'defis#edit', :as => :edit_defi
 
   match '/signup', to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
+  match '/users', to: 'users#show'
+  match '/defis', to: 'defis#show'
+
+  match '/formulaire', to: 'defis#new'
+
+  match 'users/:id/edit', to: 'users#edit', :as => :edit_user
+  match 'users/:id/promote', to: 'users#promote_admin', :as => :promote
+  match 'users/:id/unpromote', to: 'users#unpromote_admin', :as => :unpromote
+  
+  match '/microposts', to: 'microposts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

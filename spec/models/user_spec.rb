@@ -7,10 +7,12 @@
 #  email                        :string(255)
 #  jetons                       :integer
 #  jetonsTotalDepuisInscription :integer
-#  password_digest              :string(255)
 #  dateDerniereConnection       :datetime
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
+#  password_digest              :string(255)
+#  remember_token               :string(255)
+#  admin                        :boolean          default(FALSE)
 #
 
 require 'spec_helper'
@@ -23,6 +25,7 @@ describe User do
 	it { should respond_to(:name) }
 	it { should respond_to(:email) }
 	it { should respond_to(:password_digest) }
+  it { should respond_to(:remember_token) }
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:jetons) }
@@ -125,6 +128,11 @@ describe User do
     it "should have the right microposts in the right order" do
       expect(@user.microposts.to_a).to eq [newer_micropost, older_micropost]
     end
+  end
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
   end
 	
 
