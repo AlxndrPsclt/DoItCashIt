@@ -1,3 +1,6 @@
+#!/bin/env ruby
+## encoding: utf-8
+
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :index, :destroy, :promote_admin, :edit_mot_de_passe]
   before_filter :correct_user,   only: [:edit, :update, :edit_mot_de_passe]
@@ -16,13 +19,13 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     @user.toggle!(:admin)
     redirect_to users_url
-    flash[:success] = "Promotion réussie"
+    flash[:success] = "Promotion reussie"
   end
   def unpromote_admin
     @user=User.find(params[:id])
     @user.toggle!(:admin)
     redirect_to users_url
-    flash[:success] = "Action réussie"
+    flash[:success] = "Action reussie"
   end
   # Creation
   def create
